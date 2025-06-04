@@ -1,0 +1,28 @@
+import java.util.Scanner;
+class Salary_Switch{
+	public static void main(String[]args){
+	Scanner scan = new Scanner(System.in);
+		
+	System.out.print("현 연봉을 입력하세요 : ");
+	int a=scan.nextInt();
+	System.out.print("근무평가등급을 입력하시오 : ");
+	String b = scan.next();
+
+	switch(b){
+		
+		case "우수": 
+			System.out.println("연봉인상액 : "+(int)(a*0.06));
+			System.out.println("새 연봉인상액 : "+((int)(a*0.06)+a)); 
+			break; 
+		case "보통": 
+			System.out.println("연봉인상액 : "+(int)(a*0.04));
+			System.out.println("새 연봉인상액 : "+((int)(a*0.04)+a)); 
+			break; 
+		case "불량": 
+			System.out.println("연봉인상액 : "+(int)(a*0.02));
+			System.out.println("새 연봉인상액 : "+((int)(a*0.02)+a)); 
+			break; 
+	}
+	
+	}
+}
