@@ -1,0 +1,14 @@
+import java.util.Scanner;
+class 	SwitchExam5{
+	public static void main(String[]args){
+		Scanner scan = new Scanner(System.in);
+		
+		int a = scan.nextInt();
+		
+		switch(a){
+		case 1,2,3,4 : System.out.print("뉴미디어 소프트웨어과"); break;
+
+		case 5,6 : System.out.print("뉴미디어 디자인과"); break;
+		}
+	}
+}
