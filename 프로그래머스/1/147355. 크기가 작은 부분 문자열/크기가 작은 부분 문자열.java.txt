@@ -1,0 +1,28 @@
+import java.util.*;
+class Solution {
+    public int solution(String t, String p) {
+        int answer = 0;
+        
+        String str [] = new String[t.length()-p.length()+1];
+        
+        for(int i = 0 ; i < str.length ; i++){
+            str[i] = "";
+        }
+        
+        for(int i = 0 ; i < t.length()-p.length()+1; i++){
+            for(int j = i ; j < i+p.length() ; j++ ){
+                str[i]+=t.charAt(j);
+            }
+        }
+        
+        
+        System.out.println(Arrays.toString(str));
+        
+        for(int i = 0; i < str.length ; i++){
+            if(Long.parseLong(str[i]) <= Long.parseLong(p)){
+                answer++;
+            }
+        }
+        return answer;
+    }
+}
