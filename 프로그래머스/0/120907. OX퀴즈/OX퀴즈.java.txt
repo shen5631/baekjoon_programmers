@@ -1,0 +1,54 @@
+import java.util.*;
+class Solution {
+    public String[] solution(String[] quiz) {
+        String[] answer = new String[quiz.length];
+        
+        int cnt = 0;
+        String check_str ="";
+        boolean p_m = true;
+        
+        int num_check = 0;
+        int sum =0;
+        
+        boolean go = false;
+        
+        for(int i = 0 ; i < answer.length ; i++){
+            StringTokenizer stk = new StringTokenizer(quiz[i]);
+            cnt = stk.countTokens();
+            for(int j = 0 ; j < cnt ; j++){
+                check_str = stk.nextToken();
+                if(check_str.equals("-") || check_str.equals("+")){
+                    if(check_str.equals("-")){
+                        p_m=false;                        
+                    }
+                }
+                else if(check_str.equals("=")){
+                    go = true;
+                }
+                else if(!go){
+                    if(p_m){
+                        sum+=Integer.parseInt(check_str);
+                    }
+                    else{
+                        sum-=Integer.parseInt(check_str);
+                    }
+                }
+                else{
+                    num_check=Integer.parseInt(check_str);
+                }
+            }
+            p_m=true;
+            go=false;
+            if(sum == num_check){
+                answer[i]="O";
+            }
+            else{
+                answer[i]="X";
+            }
+            sum=0;
+        }
+        
+        
+        return answer;
+    }
+}
