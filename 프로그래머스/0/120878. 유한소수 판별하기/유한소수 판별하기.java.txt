@@ -1,0 +1,40 @@
+class Solution {
+    public int solution(int a, int b) {
+        int answer = 1;
+        int r = -1;
+        
+        int n_a = a;
+        int n_b = b;
+        
+        do{
+            r = n_a % n_b;
+            if(r ==0){
+                break;
+            }
+            n_a = n_b;
+            n_b = r;
+            
+        }while(r != 0);
+        
+        int max = n_b;
+        
+        n_a = a/max;
+        n_b = b/max;
+        
+        
+        while(n_b != 1){
+            if(n_b%5 == 0){
+                n_b/=5;
+            }
+            else if(n_b % 2 == 0){
+                n_b/=2;
+            }
+            else{
+                answer++;
+                break;
+            }
+        }
+        
+        return answer;
+    }
+}
