@@ -8,12 +8,12 @@ class Solution {
             for(int j = i+1 ; j < nums.length ; j++){
                 for(int k = j+1 ; k < nums.length ; k++){
                     sum=nums[i]+nums[j]+nums[k];
-                    for(int h = 1 ; h <= sum ; h++){
+                    for(int h = 2 ; h < sum ; h++){
                         if(sum%h == 0){
                             cnt++;
                         }
                     }
-                    if(cnt == 2){
+                    if(cnt == 0){
                         answer++;
                     }
                     cnt=0;
