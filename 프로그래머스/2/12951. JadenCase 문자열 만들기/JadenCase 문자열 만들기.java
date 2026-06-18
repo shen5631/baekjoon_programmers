@@ -2,30 +2,18 @@ import java.util.*;
 class Solution {
     public String solution(String s) {
         String answer = "";
-        boolean bln = false;
-        String str[] = new String[s.length()];
-        s=s.toLowerCase();
-        
-        for(int i = 0 ;i < str.length ; i++){
-            str[i]=s.charAt(i)+"";
-        }
-        
-        if(!str[0].equals(" ")){
-            str[0]=str[0].toUpperCase();
-        }
-        
-        for(int i = 0 ; i < str.length ; i++){
-            if(str[i].equals(" ")){
-                bln=true;
+        StringTokenizer stk = new StringTokenizer(s," ");
+        int cnt = stk.countTokens();
+        for(int i = 0 ; i < cnt ; i++){
+            String temp = stk.nextToken();
+            String str_1 = (temp.charAt(0)+"").toUpperCase();
+            String str_2 = temp.substring(1);
+            if(i == cnt-1){
+                answer+=str_1+str_2;
             }
-            else if(bln){
-                str[i] = str[i].toUpperCase();
-                bln=false;
+            else{
+                answer+=str_1+str_2+" ";
             }
-        }
-        System.out.println(Arrays.toString(str));
-        for(int i = 0 ;i < str.length ; i++){
-            answer+=str[i];
         }
         return answer;
     }
