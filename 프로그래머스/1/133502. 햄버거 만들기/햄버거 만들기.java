@@ -1,44 +1,18 @@
-import java.util.*;
 class Solution {
     public int solution(int[] ingredient) {
+        int[] stack = new int[ingredient.length];
+        int sp = 0;
         int answer = 0;
-        int cnt=0;
-        ArrayList<Integer>list = new ArrayList<>();
-        Stack<Integer>stk = new Stack<>();
-        
-        for(int i = 0 ; i < ingredient.length ; i++){
-            if(ingredient[i] == 1){
-                for(int j = 3 ; j >= 1 ; j--){
-                    if(!stk.isEmpty()){
-                        if(stk.peek() == j){
-                            cnt++;
-                            list.add(stk.pop());
-                        }
-                    }
-                    else{
-                        break;
-                    }
-                }
-                if(cnt==3){
-                    answer++;
-                }
-                else{
-                    for(int j = list.size()-1 ; j >= 0 ; j--){
-                        stk.push(list.get(j));
-                    }
-                    stk.push(1);
-                }
-                list.clear();
-                cnt=0;
+        for (int i : ingredient) {
+            stack[sp++] = i;
+            if (sp >= 4 && stack[sp - 1] == 1
+                && stack[sp - 2] == 3
+                && stack[sp - 3] == 2
+                && stack[sp - 4] == 1) {
+                sp -= 4;
+                answer++;
             }
-            else{
-                stk.push(ingredient[i]);
-            }
-            //System.out.println(stk);
         }
-        
-        //System.out.println(stk);
-        
         return answer;
     }
 }
