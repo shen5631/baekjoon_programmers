@@ -1,0 +1,2 @@
+-- 코드를 입력하세요
+SELECT FOOD_TYPE, REST_ID, REST_NAME, FAVORITES from REST_INFO O where FAVORITES = (select max(FAVORITES) from REST_INFO D where O.FOOD_TYPE = D.FOOD_TYPE) order by FOOD_TYPE desc ;
