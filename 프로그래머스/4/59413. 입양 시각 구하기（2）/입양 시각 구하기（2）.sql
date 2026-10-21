@@ -1,0 +1,10 @@
+-- 코드를 입력하세요
+WITH RECURSIVE HOURS AS(
+    SELECT 0 AS h
+    UNION ALL
+    SELECT h + 1 from hours WHERE h < 23
+)
+
+SELECT h as HOUR, (
+    SELECT COUNT(*) FROM ANIMAL_OUTS A WHERE HOUR(A.DATETIME) = H.h
+) FROM HOURS H;
